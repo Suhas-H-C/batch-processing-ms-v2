@@ -1,0 +1,38 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "001-create-portfolio-data-details-table",
+        "author": "Suhas H C",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "portfolio_details",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "int",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "portfolio",
+                    "type": "varchar(225)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

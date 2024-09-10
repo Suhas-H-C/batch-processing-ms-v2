@@ -1,0 +1,36 @@
+---
+server:
+  port: 7980
+spring:
+  application:
+   name: spring-data-source-config-microservice
+  liquibase:
+   changelog: classpath:liquibase/db.changelog.json
+   databaseChangeLogTable: DATA_SOURCE_CONFIG_CHANGELOG
+   databaseChangeLogLockTable: DATA_SOURCE_CONFIG_CHANGELOCK
+   defaultSchema: adventure_works
+   contexts: mysql
+  datasource:
+   mysql:
+    platform: mysql
+    jdbcUrl: jdbc:mysql://localhost:3306/adventure_works
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    hikari:
+     minimumIdle: 5
+     maximumPoolSize: 10
+     poolName: spring-liquibase-pool
+     maxLifetime: 600000
+     idleTimeOut: 300000
+   h2:
+    jdbcUrl: jdbc:h2:mem:db;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    hikari:
+     minimumIdle: 5
+     maximumPoolSize: 10
+     poolName: spring-h2-pool
+     maxLifetime: 600000
+     idleTimeOut: 300000
